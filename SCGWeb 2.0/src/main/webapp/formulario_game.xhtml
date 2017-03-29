@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>SCGWeb [versão 0.1]</title>
+</h:head>
+<h:body>
+	<h:form>
+	    <h:inputHidden value="#{viewGame.game.id}"/>
+		<h:panelGrid columns="2">
+			<f:facet name="header">
+				<h:outputLabel value="Cadastro de Games" />
+			</f:facet>
+			<h:outputLabel value="Título:" />
+			<h:inputText value="#{viewGame.game.titulo}" />
+			<h:outputLabel value="Desenvolvedor:" />
+			<h:selectOneMenu value="#{viewGame.game.desenvolvedor}">
+				<f:selectItem itemLabel="Capcom" itemValue="Capcom" />
+				<f:selectItem itemLabel="Ubisoft" itemValue="Ubisoft" />
+				<f:selectItem itemLabel="Square Enix" itemValue="Square Enix" />
+				<f:selectItem itemLabel="Konami" itemValue="Konami" />
+				<f:selectItem itemLabel="SEGA" itemValue="SEGA" />
+				<f:selectItem itemLabel="Electronic Arts"
+					itemValue="Electronic Arts" />
+				<f:selectItem itemLabel="Activision Blizzard"
+					itemValue="Activision Blizzard" />
+			</h:selectOneMenu>
+			<h:outputLabel value="Plataforma:" />
+			<h:selectOneMenu value="#{viewGame.game.plataforma}">
+				<f:selectItem itemLabel="Playstation I" itemValue="Playstation I" />
+				<f:selectItem itemLabel="Playstation II" itemValue="Playstation II" />
+				<f:selectItem itemLabel="Playstation III" itemValue="Playstation IIII" />
+				<f:selectItem itemLabel="Playstation IV" itemValue="Playstation IV" />
+				<f:selectItem itemLabel="Xbox 360" itemValue="Xbox 360" />
+				<f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+				<f:selectItem itemLabel="Nitendo Wii" itemValue="Nitendo Wii" />
+				<f:selectItem itemLabel="PC" itemValue="PC" />
+			</h:selectOneMenu>
+			<h:outputLabel value="Classificação:" />
+			<h:selectOneMenu value="#{viewGame.game.classificacao}">
+				<f:selectItem itemLabel="Livre" itemValue="Livre" />
+				<f:selectItem itemLabel="Não recomendado para menores de dez anos"
+					itemValue="Não recomendado para menores de dez anos" />
+				<f:selectItem itemLabel="Não recomendado para menores de doze anos"
+					itemValue="Não recomendado para menores de doze anos" />
+				<f:selectItem
+					itemLabel="Não recomendado para menores de catorze anos"
+					itemValue="Não recomendado para menores de catorze anos" />
+				<f:selectItem
+					itemLabel="Não recomendado para menores de dezesseis anos"
+					itemValue="Não recomendado para menores de dezesseis anos" />
+				<f:selectItem
+					itemLabel="Não recomendado para menores de dezoito anos"
+					itemValue="Não recomendado para menores de dezoito anos" />
+			</h:selectOneMenu>
+		</h:panelGrid>
+		<h:commandButton value="Gravar" action="#{viewGame.actionGravar}" />
+	</h:form>
+</h:body>
+</html>

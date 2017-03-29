@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>SCGWeb [versão 0.1]</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:column>
+			<h:commandButton value="Voltar" action="index.xhtml" />
+		</h:column>
+	</h:form>
+	<h:form>
+		<h:dataTable value="#{viewGame.todosGames}" var="objGame" border="1">
+			<f:facet name="header">
+				<h:outputLabel value="Listagem de Games" />
+				<br />
+				<h:commandLink value="Cadastrar Novo Game"
+					action="#{viewGame.actionNovo}" />
+			</f:facet>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="ID" />
+				</f:facet>
+				<h:outputLabel value="#{objGame.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Título" />
+				</f:facet>
+				<h:outputLabel value="#{objGame.titulo}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Desenvolvedor" />
+				</f:facet>
+				<h:outputLabel value="#{objGame.desenvolvedor}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Plataforma" />
+				</f:facet>
+				<h:outputLabel value="#{objGame.plataforma}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Classificação" />
+				</f:facet>
+				<h:outputLabel value="#{objGame.classificacao}" />
+			</h:column>
+			<h:column>
+				<h:commandLink action="#{viewGame.actionApagar}">
+					<h:graphicImage library="icones" name="garbage.png" />
+					<f:setPropertyActionListener value="#{objGame}"
+						target="#{viewGame.game}" />
+				</h:commandLink>
+			</h:column>
+			<h:column>
+				<h:commandLink action="#{viewGame.actionAtualizar}">
+					<h:graphicImage library="icones" name="edit.png" />
+					<f:setPropertyActionListener value="#{objGame}"
+						target="#{viewGame.game}" />
+				</h:commandLink>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>

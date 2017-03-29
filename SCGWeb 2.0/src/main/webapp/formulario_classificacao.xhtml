@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>SCGWeb [versão 0.1]</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:inputHidden value="#{viewClassificacao.classificacao.id}" />
+		<h:panelGrid columns="2">
+			<f:facet name="header">
+				<h:outputLabel value="Cadastrar as Classificações" />
+			</f:facet>
+			<h:outputLabel value="Categoria:" />
+			<h:selectOneMenu value="#{viewClassificacao.classificacao.categoria}">
+				<f:selectItem itemLabel="Livre" itemValue="Livre" />
+				<f:selectItem itemLabel="10" itemValue="10" />
+				<f:selectItem itemLabel="12" itemValue="12" />
+				<f:selectItem itemLabel="14" itemValue="14" />
+				<f:selectItem itemLabel="16" itemValue="16" />
+				<f:selectItem itemLabel="18" itemValue="18" />
+			</h:selectOneMenu>
+			<h:outputLabel value="Descrição:" />
+			<h:inputTextarea value="#{viewClassificacao.classificacao.descricao}" />
+			<h:outputLabel value="Descricao de Violencia:" />
+			<h:selectOneMenu
+				value="#{viewClassificacao.classificacao.descricaoViolencia}">
+				<f:selectItem itemLabel="Sim possui violência"
+					itemValue="Sim possui violência" />
+				<f:selectItem itemLabel="Não possui violência"
+					itemValue="Não possui violência" />
+			</h:selectOneMenu>
+			<h:outputLabel value="Descricao de Sexo e Nudez:" />
+			<h:selectOneMenu
+				value="#{viewClassificacao.classificacao.descricaoSexoNudez}">
+				<f:selectItem itemLabel="Sim Possui Sexo"
+					itemValue="Sim Possui Sexo" />
+				<f:selectItem itemLabel="Sim Possui Nudez"
+					itemValue="Sim Possui Nudez" />
+				<f:selectItem itemLabel="Sim Possui Sexo e Nudez"
+					itemValue="Sim Possui Sexo e Nudez" />
+				<f:selectItem itemLabel="Não Possui Sexo e Nudez"
+					itemValue="Não Possui Sexo e Nudez" />
+			</h:selectOneMenu>
+			<h:outputLabel value="Descricao de Drogas:" />
+			<h:selectOneMenu
+				value="#{viewClassificacao.classificacao.descricaoDrogas}">
+				<f:selectItem itemLabel="Sim Possui Drogas"
+					itemValue="Sim Possui Drogas" />
+				<f:selectItem itemLabel="Não Possui Drogas"
+					itemValue="Não Possui Drogas" />
+			</h:selectOneMenu>
+		</h:panelGrid>
+		<h:commandButton value="Gravar"
+			action="#{viewClassificacao.actionGravar}" />
+	</h:form>
+</h:body>
+</html>

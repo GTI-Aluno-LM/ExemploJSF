@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>SCGWeb [versão 0.1]</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:column>
+			<h:commandButton value="Voltar" action="index.xhtml" />
+		</h:column>
+	</h:form>
+	<h:form>
+		<h:dataTable value="#{viewClassificacao.todosClassificacoes}" var="objClassificacao" border="1">
+			<f:facet name="header">
+				<h:outputLabel value="Listagem de Classificações" />
+				<br />
+				<h:commandLink value="Cadastrar Nova Classificação"
+					action="#{viewClassificacao.actionNovo}" />
+			</f:facet>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="ID" />
+				</f:facet>
+				<h:outputLabel value="#{objClassificacao.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Categoria" />
+				</f:facet>
+				<h:outputLabel value="#{objClassificacao.categoria}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Descricao" />
+				</f:facet>
+				<h:outputLabel value="#{objClassificacao.descricao}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Descricao de Violencia" />
+				</f:facet>
+				<h:outputLabel value="#{objClassificacao.descricaoViolencia}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Descricao de Sexo e Nudez" />
+				</f:facet>
+				<h:outputLabel value="#{objClassificacao.descricaoSexoNudez}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputLabel value="Descricao de Drogas" />
+				</f:facet>
+				<h:outputLabel value="#{objClassificacao.descricaoDrogas}" />
+			</h:column>
+			<h:column>
+				<h:commandLink action="#{viewClassificacao.actionApagar}">
+					<h:graphicImage library="icones" name="garbage.png" />
+					<f:setPropertyActionListener value="#{objClassificacao}"
+						target="#{viewClassificacao.classificacao}" />
+				</h:commandLink>
+			</h:column>
+			<h:column>
+				<h:commandLink action="#{viewClassificacao.actionAtualizar}">
+					<h:graphicImage library="icones" name="edit.png" />
+					<f:setPropertyActionListener value="#{objClassificacao}"
+						target="#{viewClassificacao.classificacao}" />
+				</h:commandLink>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
+</html>
